@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ButtonHeaderLogout from '../../components/ButtonHeaderLogout/ButtonHeaderLogout';
 import HeaderNavLink from '../../components/HeaderNavLink/HeaderNavLink';
 import { Path } from '../../constants/common';
 import { useAppSelector } from '../../hooks/typedHooks';
@@ -19,13 +20,13 @@ const Header = () => {
               <li><HeaderNavLink to={Path.dashboard}>Dashboard</HeaderNavLink></li>
               <li><HeaderNavLink to={Path.friends}>Friends</HeaderNavLink></li>
               <li><HeaderNavLink to={Path.profile}>Profile</HeaderNavLink></li>
+              <li className={styles.logout}><ButtonHeaderLogout /></li>
             </>
           ) : (
             <>
               <li><HeaderNavLink to="/">Home</HeaderNavLink></li>
               <li><HeaderNavLink to={Path.login}>Login</HeaderNavLink></li>
               <li><HeaderNavLink to={Path.register}>Registration</HeaderNavLink></li>
-
             </>
           )}
         </ul>
