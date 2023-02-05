@@ -4,6 +4,8 @@ export enum Path {
   register = 'register',
   unauthorized = '/unauthorized',
   dashboard = '/dashboard',
+  friends = '/friends',
+  profile = '/profile',
 }
 
 export enum ApiEndpoints {
