@@ -1,9 +1,7 @@
 @mixin background-polka-dot {
-  background: $color-background-dark;
-  background-image: radial-gradient($color-background-medium 30%, transparent 0),
-                    radial-gradient($color-background-medium 30%, transparent 0);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+  background-image: radial-gradient($color-body-background-secondary 10%, transparent 0);
+  background-size: 25px 25px;
+  background-attachment: fixed;
 }
 
 @mixin button {
