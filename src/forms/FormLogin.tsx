@@ -2,9 +2,14 @@ import React from 'react';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import ButtonSubmit from '../components/ButtonSubmit/ButtonSubmit';
 import ControlledFormInput from '../components/controlledFormInput/ControlledFormInput';
 import FormStyledAuthentication from '../components/FormStyledAuthentication/FormStyledAuthentication';
+import { useAppDispatch } from '../hooks/typedHooks';
+import { login } from '../store/authSlice';
+import { Path, StatusCode } from '../constants/common';
 
 const loginSchema = object({
   nickname: string()
@@ -20,11 +25,23 @@ const loginSchema = object({
 export type LoginInput = TypeOf<typeof loginSchema>;
 
 const FormLogin = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const methods = useForm<LoginInput>({ resolver: zodResolver(loginSchema) });
   const { handleSubmit } = methods;
 
   const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-    console.log(values);
+    dispatch(login(values)).unwrap().then((user) => {
+      toast.info(`Hello ${user.nickname}!`);
+      navigate(`${Path.dashboard}`);
+    })
+      .catch((err) => {
+        if (err.statusCode && err.statusCode === StatusCode.notFound) {
+          toast.error('User does not exist or wrong password');
+        } else {
+          toast.error(err.message || 'Something went wrong');
+        }
+      });
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './app/Layout/Layout';
+import ProtectedRoute from './authentication/ProtectedRoute';
 import { Path } from './constants/common';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -17,6 +18,9 @@ function App() {
           path={Path.unauthorized}
           element={<h1>Unauthorized</h1>}
         />
+        <Route element={<ProtectedRoute />}>
+          <Route path={Path.dashboard} element={<h1>Dashboard</h1>} />
+        </Route>
         <Route path="*" element={<h1>Not found</h1>} />
       </Route>
     </Routes>
