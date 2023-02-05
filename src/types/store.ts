@@ -11,3 +11,9 @@ export type AsyncThunkConfig = {
   rejectValue: TypedAxiosErrorResponseData;
   dispatch: AppDispatch;
 };
+
+export type AsyncThunkWithMeta = {
+  state: RootState;
+  rejectValue: TypedAxiosErrorResponseData;
+  fulfilledMeta: string[];
+};

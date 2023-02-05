@@ -1,3 +1,5 @@
+import { TypedAxiosErrorResponseData } from '../types/store';
+
 export enum Path {
   home = '/',
   login = 'login',
@@ -14,6 +16,8 @@ export enum ApiEndpoints {
   refresh = 'auth/refresh',
   logout = 'auth/logout',
   verify = 'auth',
+  deeds = 'deeds',
+  users = 'users',
 }
 
 export enum StatusCode {
@@ -22,3 +26,9 @@ export enum StatusCode {
   forbidden = 403,
   notFound = 404,
 }
+
+export const unauthenticatedException: TypedAxiosErrorResponseData = {
+  error: 'Error',
+  message: 'You session expired',
+  statusCode: StatusCode.unauthorized,
+};
