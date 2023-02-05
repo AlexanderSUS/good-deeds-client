@@ -6,13 +6,13 @@ type NotificationState = {
   isLoading: boolean;
 };
 
-const notificationInitialState: NotificationState = {
+const initialState: NotificationState = {
   isLoading: false,
 };
 
 const notificationSlice = createSlice({
   name: 'notification',
-  initialState: notificationInitialState,
+  initialState,
   reducers: { },
   extraReducers: (builder) => {
     builder.addMatcher(isPending, (state) => {

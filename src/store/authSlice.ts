@@ -12,7 +12,7 @@ type AuthState = {
   user: User | null;
 };
 
-const authInitialState: AuthState = {
+const initialState: AuthState = {
   user: null,
 };
 
@@ -111,16 +111,16 @@ export const verify = createAsyncThunk<User, void, AsyncThunkConfig>(
   },
 );
 
-const slice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
-  initialState: authInitialState,
+  initialState,
   reducers: {
     setUser: (state, { payload } : PayloadAction<User>) => {
       state.user = payload;
     },
-    logOut: (state) => {
-      state.user = null;
-    },
+    // logOut: (state) => {
+    //   state.user = null;
+    // },
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, { payload }) => {
@@ -141,8 +141,8 @@ const slice = createSlice({
   },
 });
 
-export const { setUser } = slice.actions;
+export const { setUser } = authSlice.actions;
 
-export default slice.reducer;
+export default authSlice.reducer;
 
 export const authSelector = (state: { authStore: AuthState }) => state.authStore;
