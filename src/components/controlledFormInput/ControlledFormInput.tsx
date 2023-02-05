@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import AuthFormInput from '../../components/AuthFormInput/AuthFormInput';
+import AuthFormInput from '../AuthFormInput/AuthFormInput';
 
 type Props = {
   name: string;

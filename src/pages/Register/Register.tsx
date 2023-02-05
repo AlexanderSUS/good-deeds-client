@@ -1,7 +1,7 @@
 import React from 'react';
-import Page from '../../components/Page/Page';
+import Page from '../../app/Page/Page';
 import styles from './Register.module.scss';
-import FormRegistration from '../../forms/FormRegistration/FormRegistration';
+import FormRegistration from '../../forms/FormRegistration';
 
 const Register = () => (
   <Page>

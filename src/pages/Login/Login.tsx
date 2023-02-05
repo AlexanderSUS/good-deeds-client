@@ -1,6 +1,6 @@
 import React from 'react';
-import Page from '../../components/Page/Page';
-import FormLogin from '../../forms/FormLogin/FormLogin';
+import Page from '../../app/Page/Page';
+import FormLogin from '../../forms/FormLogin';
 import styles from './Login.module.scss';
 
 const Login = () => (

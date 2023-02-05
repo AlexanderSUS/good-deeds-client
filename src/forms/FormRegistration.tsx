@@ -2,10 +2,9 @@ import React from 'react';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import ButtonSubmit from '../../components/ButtonSubmit/ButtonSubmit';
-import ControlledFormInput from '../controlledFormInput/ControlledFormInput';
-
-import styles from './FormRegistration.module.scss';
+import ButtonSubmit from '../components/ButtonSubmit/ButtonSubmit';
+import ControlledFormInput from '../components/controlledFormInput/ControlledFormInput';
+import FormStyledAuthentication from '../components/FormStyledAuthentication/FormStyledAuthentication';
 
 const registerSchema = object({
   nickname: string()
@@ -26,7 +25,7 @@ export type RegisterInput = TypeOf<typeof registerSchema>;
 
 const FormRegistration = () => {
   const methods = useForm<RegisterInput>({ resolver: zodResolver(registerSchema) });
-  const { setError, handleSubmit } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmitHandler: SubmitHandler<RegisterInput> = (values) => {
     console.log(values);
@@ -34,12 +33,12 @@ const FormRegistration = () => {
 
   return (
     <FormProvider {...methods}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+      <FormStyledAuthentication onSubmit={handleSubmit(onSubmitHandler)}>
         <ControlledFormInput name="nickname" type="input" label="Nickname" />
         <ControlledFormInput name="password" type="password" label="Password" />
         <ControlledFormInput name="passwordConfirm" type="password" label="Confirm password" />
         <ButtonSubmit value="submit" />
-      </form>
+      </FormStyledAuthentication>
     </FormProvider>
   );
 };
