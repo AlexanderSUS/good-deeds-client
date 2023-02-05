@@ -1,15 +1,16 @@
 import React from 'react';
-import { object, string, TypeOf } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { object, string, TypeOf } from 'zod';
+
 import ButtonSubmit from '../components/ButtonSubmit/ButtonSubmit';
 import ControlledFormInput from '../components/controlledFormInput/ControlledFormInput';
 import FormStyledAuthentication from '../components/FormStyledAuthentication/FormStyledAuthentication';
+import { Path } from '../constants/common';
 import { useAppDispatch } from '../hooks/typedHooks';
 import { register } from '../store/authSlice';
-import { Path } from '../constants/common';
 
 const registerSchema = object({
   nickname: string()

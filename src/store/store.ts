@@ -1,5 +1,6 @@
-import { setupListeners } from '@reduxjs/toolkit/query';
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+
 import authSliceReducer from './authSlice';
 import notificationSliceReducer from './notificationSlice';
 

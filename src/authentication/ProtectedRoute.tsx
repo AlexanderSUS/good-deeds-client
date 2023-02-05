@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
+
 import { Path } from '../constants/common';
 import { useAppSelector } from '../hooks/typedHooks';
 import { authSelector } from '../store/authSlice';

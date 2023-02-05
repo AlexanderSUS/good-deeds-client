@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
 import Loader from '../../components/Loader/Loader';
 import { useAppSelector } from '../../hooks/typedHooks';
 import { notificationSelector } from '../../store/notificationSlice';

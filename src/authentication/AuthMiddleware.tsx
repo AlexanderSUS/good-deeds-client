@@ -1,5 +1,6 @@
 import { FC, ReactElement, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import { Path } from '../constants/common';
 import { useAppDispatch, useAppSelector } from '../hooks/typedHooks';
 import { verify } from '../store/authSlice';

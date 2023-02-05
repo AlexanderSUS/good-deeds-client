@@ -1,9 +1,11 @@
 import { AxiosResponse } from 'axios';
-import api from './api';
+
 import { ApiEndpoints } from '../constants/common';
-import { User } from '../types/user';
-import { RegisterInput } from '../forms/FormRegistration';
 import { LoginInput } from '../forms/FormLogin';
+import { RegisterInput } from '../forms/FormRegistration';
+import { User } from '../types/user';
+
+import api from './api';
 
 export default class AuthService {
   static register(registerInput: RegisterInput): Promise<AxiosResponse<User>> {

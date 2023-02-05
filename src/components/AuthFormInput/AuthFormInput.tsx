@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ValidationErrorMessage from '../ValidationErrorMessage/ValidationErrorMessage';
 
 import styles from './AuthFormInput.module.scss';

@@ -1,10 +1,11 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
-import type { RegisterInput } from '../forms/FormRegistration';
+
 import type { LoginInput } from '../forms/FormLogin';
-import { AsyncThunkConfig, TypedAxiosErrorResponseData } from '../types/store';
+import type { RegisterInput } from '../forms/FormRegistration';
 import AuthService from '../services/AuthService';
+import { AsyncThunkConfig, TypedAxiosErrorResponseData } from '../types/store';
 import { User } from '../types/user';
 
 type AuthState = {

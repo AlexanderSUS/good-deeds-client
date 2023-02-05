@@ -1,8 +1,10 @@
 import React from 'react';
+
 import HeaderNavLink from '../../components/HeaderNavLink/HeaderNavLink';
 import { Path } from '../../constants/common';
 import { useAppSelector } from '../../hooks/typedHooks';
 import { authSelector } from '../../store/authSlice';
+
 import styles from './Header.module.scss';
 
 const Header = () => {

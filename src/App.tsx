@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import Layout from './app/Layout/Layout';
 import ProtectedRoute from './authentication/ProtectedRoute';
 import { Path } from './constants/common';
