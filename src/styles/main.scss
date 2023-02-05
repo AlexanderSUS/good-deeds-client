@@ -1,0 +1,28 @@
+@import 'src';
+
+html, body {
+  margin: 0;
+  padding: 0; 
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+body {
+  @include background-polka-dot;
+
+  background-attachment: fixed;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

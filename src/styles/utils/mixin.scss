@@ -1,0 +1,82 @@
+@mixin background-polka-dot {
+  background: $color-background-dark;
+  background-image: radial-gradient($color-background-medium 30%, transparent 0),
+                    radial-gradient($color-background-medium 30%, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+@mixin button {
+  padding: 0.5rem 1rem; 
+
+  color: $color-text-medium;
+  font-weight: bold;
+
+  background: $color-background-light; 
+  border: 2px solid $color-background-dark;
+
+  text-transform: uppercase;
+
+  cursor:pointer;
+
+  &:hover:not(:disabled) {
+    color: $color-text-light;
+    background-color: $color-background-dark;
+    border-color:$color-background-medium;
+  }
+
+  &:active:not(:disabled) {
+    color: $color-text-light;
+    background-color: $color-text-emphasize;
+    border-color:$color-background-medium;
+  }
+
+  &:disabled {
+    color: $color-background-medium;
+  }
+}
+
+@mixin authForm {
+  box-sizing: border-box;
+  margin: auto;
+
+  width: 480px;
+
+  padding: 1rem 3rem 1rem 3rem;
+
+  background-color: $color-background-dark;
+
+  border-bottom: 1px solid $color-background-medium;
+  border-left: 1px solid $color-background-medium;
+  border-right: 1px solid $color-background-medium;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
+  label {
+    display: block;
+    color: $color-text-light;
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+
+  input:not([type='submit']) {
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 2rem;
+
+    margin-top: 0.2rem;
+
+    font-size: 1.5rem;
+    text-indent: 0.5rem;
+   }
+
+  input:not([type='text']) {
+    display: block;
+    margin-left: auto;
+  }
+}

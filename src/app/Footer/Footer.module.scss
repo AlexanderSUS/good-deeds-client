@@ -1,0 +1,27 @@
+@import 'src';
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 1rem;
+
+  background-color: $color-background-dark;
+}
+
+.link {
+  color: $color-background-medium;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: $color-text-light;
+
+    text-decoration: underline;
+  }
+}
+
+.span {
+  color: $color-background-medium;
+  font-weight: bold;
+}
