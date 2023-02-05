@@ -1,0 +1,21 @@
+@import 'src';
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+
+   input[type=submit] {
+    margin-left: auto;
+   } 
+}
+
+.label {
+  margin: 0;
+
+  color: $color-text-light;
+  font-size: 1.8rem;
+}
+

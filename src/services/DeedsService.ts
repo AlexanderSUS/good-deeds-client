@@ -1,14 +1,14 @@
 import { AxiosResponse } from 'axios';
 
 import { ApiEndpoints } from '../constants/common';
-import { RegisterInput } from '../forms/FormRegistration';
+import { CreateDeedInput } from '../forms/FormCreateGoodDeed/FormCreateGoodDeed';
 import { GoodDeed, GoodDeedUpdateData } from '../types/deed';
 
 import api from './api';
 
 export default class DeedsService {
-  static create(userId: string, registerInput: RegisterInput): Promise<AxiosResponse<GoodDeed>> {
-    return api.post(`${ApiEndpoints.users}/${userId}/${ApiEndpoints.deeds}`, registerInput);
+  static create(userId: string, deedInput: CreateDeedInput): Promise<AxiosResponse<GoodDeed>> {
+    return api.post(`${ApiEndpoints.users}/${userId}/${ApiEndpoints.deeds}`, deedInput);
   }
 
   static getAll(userId: string): Promise<AxiosResponse<GoodDeed[]>> {

@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
 import { unauthenticatedException } from '../constants/common';
+import type { CreateDeedInput } from '../forms/FormCreateGoodDeed/FormCreateGoodDeed';
 import DeedsService from '../services/DeedsService';
 import { GoodDeed, GoodDeedUpdateData } from '../types/deed';
 import { AsyncThunkConfig, AsyncThunkWithMeta, TypedAxiosErrorResponseData } from '../types/store';
@@ -17,8 +18,33 @@ const initialState: DeedsState = {
   deed: null,
 };
 
+export const createGoodDeed = createAsyncThunk<GoodDeed, CreateDeedInput, AsyncThunkConfig>(
+  'deeds/create',
+  async (deedInput, { getState, rejectWithValue }) => {
+    const { user } = getState().authStore;
+
+    if (!user) {
+      return rejectWithValue(unauthenticatedException);
+    }
+
+    try {
+      const res = await DeedsService.create(user._id, deedInput);
+
+      return res.data;
+    } catch (err) {
+      const error = err as AxiosError;
+
+      if (!error.response) {
+        throw err;
+      }
+
+      return rejectWithValue(error.response.data as TypedAxiosErrorResponseData);
+    }
+  },
+);
+
 export const getDeeds = createAsyncThunk<GoodDeed[], void, AsyncThunkConfig>(
-  'deeds/getDeeds',
+  'deeds/getAll',
   async (_, { getState, rejectWithValue }) => {
     const { user } = getState().authStore;
 
@@ -43,7 +69,7 @@ export const getDeeds = createAsyncThunk<GoodDeed[], void, AsyncThunkConfig>(
 );
 
 export const getDeedById = createAsyncThunk<GoodDeed, string, AsyncThunkConfig>(
-  'deeds/getDeedsById',
+  'deeds/getById',
   async (deedId, { getState, rejectWithValue }) => {
     const { user } = getState().authStore;
 
@@ -68,7 +94,7 @@ export const getDeedById = createAsyncThunk<GoodDeed, string, AsyncThunkConfig>(
 );
 
 export const updateDeed = createAsyncThunk<GoodDeed, GoodDeedUpdateData, AsyncThunkConfig>(
-  'deeds/updateDeed',
+  'deeds/update',
   async ({ _id, ...updateData }, { getState, rejectWithValue }) => {
     const { user } = getState().authStore;
 
@@ -93,7 +119,7 @@ export const updateDeed = createAsyncThunk<GoodDeed, GoodDeedUpdateData, AsyncTh
 );
 
 export const deleteDeed = createAsyncThunk<undefined, string, AsyncThunkWithMeta>(
-  'deeds/deleteDeed',
+  'deeds/delete',
   async (deedId, { getState, rejectWithValue, fulfillWithValue }) => {
     const { user } = getState().authStore;
 
@@ -122,6 +148,10 @@ const deedsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(createGoodDeed.fulfilled, (state, { payload }) => {
+      state.deeds = [payload, ...state.deeds];
+    });
+
     builder.addCase(getDeeds.fulfilled, (state, { payload }) => {
       state.deeds = payload;
     });

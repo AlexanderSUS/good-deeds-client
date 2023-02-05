@@ -1,0 +1,19 @@
+@import 'src';
+
+.wrapper {
+  min-height: 80vh;
+  width: 70%;
+
+  margin: auto;
+
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.formWrapper {
+  max-width: 800px;
+  margin-left: auto;
+  padding: 1rem 1.5rem;
+
+  border-radius: 1rem;
+  background-color: $color-background-dark;
+}
