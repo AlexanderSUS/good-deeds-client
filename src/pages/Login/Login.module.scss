@@ -1,24 +1,7 @@
 @import 'src';
 
 .heading {
-  box-sizing: border-box;
-  width: 480px;
-
-  margin: 10vmin auto -1px auto;
-  padding-top: 1rem;
-
-  font-size: 2rem;
-  text-align: center;
-  color: $color-text-light;
-
-  background-color: $color-background-dark;
-
-  border-top: 1px solid $color-background-medium;
-  border-left: 1px solid $color-background-medium;
-  border-right: 1px solid $color-background-medium;
-
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  @include authFormHeading;
 }
 
 

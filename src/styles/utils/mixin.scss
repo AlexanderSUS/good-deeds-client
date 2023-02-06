@@ -34,6 +34,31 @@
   }
 }
 
+@mixin authFormBgColor {
+  background-color: $color-body-background-secondary;
+}
+
+@mixin authFormHeading {
+  box-sizing: border-box;
+  width: 480px;
+
+  margin: 10vmin auto -1px auto;
+  padding-top: 1rem;
+
+  font-size: 2rem;
+  text-align: center;
+  color: $color-text-light;
+
+  @include authFormBgColor();
+
+  border-top: 1px solid $color-background-medium;
+  border-left: 1px solid $color-background-medium;
+  border-right: 1px solid $color-background-medium;
+
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
 @mixin authForm {
   box-sizing: border-box;
   margin: auto;
@@ -42,7 +67,7 @@
 
   padding: 1rem 3rem 1rem 3rem;
 
-  background-color: $color-background-dark;
+  @include authFormBgColor();
 
   border-bottom: 1px solid $color-background-medium;
   border-left: 1px solid $color-background-medium;
