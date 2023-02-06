@@ -1,0 +1,59 @@
+@import 'src';
+
+.deed {
+  display: flex;
+  flex-direction: row;
+
+  width: 40vmax;
+  height: auto;
+
+  margin: 0 auto;
+}
+
+.clickableArea {
+  all: unset;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+
+  height: auto;
+
+  padding: 0.5em 2rem;
+
+  border-radius: 1rem;
+  background-color: $color-body-background-secondary;
+
+  width: 100%;
+
+  color: white;
+
+  cursor: pointer;
+   
+  &:focus {
+    outline: 2px solid black;
+  }
+}
+
+.check {
+  transform: scale(2);
+}
+
+.lineThrough {
+  text-decoration-line: line-through;
+}
+
+.deedTitle {
+  max-width: calc(40vmax - 150px);
+  font-size: 1.5rem;
+  margin: 0;
+  height: fit-content;
+
+  word-wrap: break-word;
+}
+
+.deleteButton {
+  margin-left: auto;
+}

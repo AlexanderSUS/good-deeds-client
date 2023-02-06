@@ -2,6 +2,8 @@ import {
   createSlice, isFulfilled, isPending, isRejected,
 } from '@reduxjs/toolkit';
 
+import { isAuthAction } from './utils';
+
 type NotificationState = {
   isLoading: boolean;
 };
@@ -15,16 +17,22 @@ const notificationSlice = createSlice({
   initialState,
   reducers: { },
   extraReducers: (builder) => {
-    builder.addMatcher(isPending, (state) => {
-      state.isLoading = true;
+    builder.addMatcher(isPending, (state, action) => {
+      if (isAuthAction(action)) {
+        state.isLoading = true;
+      }
     });
 
-    builder.addMatcher(isRejected, (state) => {
-      state.isLoading = false;
+    builder.addMatcher(isRejected, (state, action) => {
+      if (isAuthAction(action)) {
+        state.isLoading = false;
+      }
     });
 
-    builder.addMatcher(isFulfilled, (state) => {
-      state.isLoading = false;
+    builder.addMatcher(isFulfilled, (state, action) => {
+      if (isAuthAction(action)) {
+        state.isLoading = false;
+      }
     });
   },
 });

@@ -161,7 +161,8 @@ const deedsSlice = createSlice({
     });
 
     builder.addCase(updateDeed.fulfilled, (state, { payload }) => {
-      state.deeds = [...state.deeds.filter(({ _id }) => _id !== payload._id), payload];
+      const index = state.deeds.findIndex(({ _id }) => _id === payload._id);
+      state.deeds[index] = payload;
     });
 
     builder.addCase(deleteDeed.fulfilled, (state, { meta }) => {
