@@ -1,17 +1,12 @@
 @import 'src';
 
 .wrapper {
-  min-height: 80vh;
-  width: 70%;
+  width: 50%;
 
-  margin: auto;
-
-  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
 }
 
 .formWrapper {
-  max-width: 800px;
-  margin-left: auto;
   padding: 1rem 1.5rem;
 
   border-radius: 1rem;
@@ -22,4 +17,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  padding-left: 0;
 }
