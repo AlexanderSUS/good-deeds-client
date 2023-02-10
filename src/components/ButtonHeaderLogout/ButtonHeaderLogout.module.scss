@@ -10,8 +10,11 @@
 
   cursor: pointer;
 
-
   &:hover {
     color: $color-text-emphasize;
+  }
+
+  &:focus {
+    outline: 2px solid black;
   }
 }
